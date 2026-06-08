@@ -1,8 +1,30 @@
-# NexShop Database Project
+<h1 align="center">NexShop Database Project</h1>
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=2500&pause=900&color=1F6FEB&center=true&vCenter=true&width=760&lines=Modelo+ER+y+modelo+relacional;Base+de+datos+MySQL+para+NexShop;Schema%2C+datos+de+prueba+y+consultas;Proyecto+avanzado+de+base+de+datos" alt="Presentacion animada del proyecto NexShop" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/MySQL-Workbench-blue?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL Workbench" />
+  <img src="https://img.shields.io/badge/SQL-25%20tablas-green?style=for-the-badge" alt="25 tablas SQL" />
+  <img src="https://img.shields.io/badge/Consultas-14%20%2B%20extra-orange?style=for-the-badge" alt="14 consultas mas extra" />
+</p>
 
 Proyecto de base de datos para NexShop Group S.A. El trabajo parte del enunciado de negocio y lo transforma en un modelo entidad-relación, un modelo relacional y una implementación SQL preparada para MySQL Workbench.
 
 La base de datos recoge la parte online y presencial de NexShop: clientes, direcciones, pedidos, ventas, envíos, devoluciones, catálogo, categorías, proveedores, stock, promociones, valoraciones, incidencias y puntos de fidelización.
+
+## Vista general
+
+<p align="center">
+  <a href="docs/modelo_relacional.png">
+    <img src="docs/modelo_relacional.png" alt="Modelo relacional de NexShop" width="850" />
+  </a>
+</p>
+
+<p align="center">
+  <sub>Modelo relacional final con tablas, claves primarias, claves foráneas y cardinalidades.</sub>
+</p>
 
 ## Contenido del repositorio
 
