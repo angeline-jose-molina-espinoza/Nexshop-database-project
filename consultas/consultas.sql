@@ -71,6 +71,7 @@ SET Estado = 'EN_PREPARACION'
 WHERE ID_Pedido = 3;
 
 -- 13. Actualizar un campo usando WHERE para identificar el registro: modificar el telefono de un proveedor por su identificador.
+-- Adaptado al modelo porque CLIENTE no tiene telefono.
 UPDATE PROVEEDOR
 SET Telefono = '961111222'
 WHERE ID_Proveedor = 1;
