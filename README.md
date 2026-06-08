@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/MySQL-Workbench-blue?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL Workbench" />
   <img src="https://img.shields.io/badge/SQL-25%20tablas-green?style=for-the-badge" alt="25 tablas SQL" />
   <img src="https://img.shields.io/badge/Consultas-14%20%2B%20extra-orange?style=for-the-badge" alt="14 consultas mas extra" />
-  <img src="https://komarev.com/ghpvc/?username=angeline-jose-molina-espinoza&label=Visualizaciones%20del%20perfil&color=blueviolet&style=for-the-badge" alt="Visualizaciones del perfil" />
+  <img src="https://komarev.com/ghpvc/?username=angeline-jose-molina-espinoza&label=VISUALIZACIONES&color=blueviolet&style=for-the-badge" alt="Visualizaciones" />
 </p>
 
 <p align="center">
