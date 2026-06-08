@@ -99,6 +99,10 @@ Mini Proyecto Avanzado - Base de Datos | NexShop Group S.A.
 ---
 
 <p align="center">
+  <img src="https://raw.githubusercontent.com/angeline-jose-molina-espinoza/Nexshop-database-project/output/github-contribution-grid-snake.svg" alt="Animacion de contribuciones" />
+</p>
+
+<p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=2600&pause=900&color=2EA043&center=true&vCenter=true&width=760&lines=Base+de+datos+lista+para+ejecutar;Modelo%2C+scripts+y+consultas+comprobados;Proyecto+NexShop+finalizado" alt="Cierre animado del proyecto NexShop" />
 </p>
 
