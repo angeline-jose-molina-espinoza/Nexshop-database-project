@@ -125,3 +125,86 @@ FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
 WHERE TABLE_SCHEMA = 'nexshop_db'
   AND REFERENCED_TABLE_NAME IS NOT NULL
 ORDER BY TABLE_NAME, COLUMN_NAME;
+
+-- CONSULTAS EXTRA PARA REFORZAR LA COMPROBACION
+-- No sustituyen a las 14 consultas obligatorias: se anaden para demostrar tambien LEFT JOIN, agregaciones, subconsultas, vistas y calculo de saldo.
+
+-- EXTRA 1. LEFT JOIN: mostrar todos los clientes, tengan o no pedidos online asociados.
+SELECT
+    C.ID_Cliente,
+    C.Nombre,
+    C.Apellidos,
+    P.ID_Pedido,
+    P.Estado,
+    P.Total_Final
+FROM CLIENTE C
+LEFT JOIN PEDIDO_ONLINE P
+    ON C.ID_Cliente = P.ID_Cliente
+ORDER BY C.ID_Cliente, P.Fecha_Pedido;
+
+-- EXTRA 2. Agregacion: calcular numero de ventas presenciales e importe total por cliente registrado.
+SELECT
+    C.ID_Cliente,
+    C.Nombre,
+    C.Apellidos,
+    COUNT(V.ID_Venta) AS Total_Ventas,
+    COALESCE(SUM(V.Total_Final), 0) AS Importe_Total
+FROM CLIENTE C
+LEFT JOIN VENTA_PRESENCIAL V
+    ON C.ID_Cliente = V.ID_Cliente
+GROUP BY C.ID_Cliente, C.Nombre, C.Apellidos
+ORDER BY Importe_Total DESC;
+
+-- EXTRA 3. Subconsulta: productos cuyo PVP vigente es superior al precio medio vigente.
+SELECT
+    P.ID_Producto,
+    P.Nombre,
+    H.PVP
+FROM PRODUCTO P
+INNER JOIN HISTORIAL_PRECIO_PRODUCTO H
+    ON P.ID_Producto = H.ID_Producto
+WHERE H.Fecha_Fin IS NULL
+  AND H.PVP > (
+      SELECT AVG(PVP)
+      FROM HISTORIAL_PRECIO_PRODUCTO
+      WHERE Fecha_Fin IS NULL
+  );
+
+-- EXTRA 4. Vista: crear una vista para consultar el stock actual por ubicacion y producto.
+CREATE OR REPLACE VIEW VW_STOCK_POR_UBICACION AS
+SELECT
+    U.Nombre AS Ubicacion,
+    U.Tipo,
+    P.Nombre AS Producto,
+    S.Cantidad_Actual,
+    S.Stock_Minimo,
+    S.Stock_Maximo
+FROM STOCK_UBICACION S
+INNER JOIN UBICACION U
+    ON S.ID_Ubicacion = U.ID_Ubicacion
+INNER JOIN PRODUCTO P
+    ON S.ID_Producto = P.ID_Producto;
+
+-- EXTRA 5. Consultar la vista de stock por ubicacion.
+SELECT *
+FROM VW_STOCK_POR_UBICACION
+ORDER BY Ubicacion, Producto;
+
+-- EXTRA 6. Calculo de saldo de puntos desde el historico de movimientos.
+SELECT
+    C.ID_Cliente,
+    C.Nombre,
+    C.Apellidos,
+    COALESCE(SUM(
+        CASE
+            WHEN M.Tipo_Movimiento = 'GANADO' THEN M.Puntos
+            WHEN M.Tipo_Movimiento = 'CANJEADO' THEN -M.Puntos
+            WHEN M.Tipo_Movimiento = 'AJUSTE' THEN M.Puntos
+            ELSE 0
+        END
+    ), 0) AS Saldo_Puntos
+FROM CLIENTE C
+LEFT JOIN MOVIMIENTO_PUNTOS M
+    ON C.ID_Cliente = M.ID_Cliente
+GROUP BY C.ID_Cliente, C.Nombre, C.Apellidos
+ORDER BY C.ID_Cliente;
