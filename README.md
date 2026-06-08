@@ -11,6 +11,24 @@
   <img src="https://komarev.com/ghpvc/?username=angeline-jose-molina-espinoza&label=Visualizaciones%20del%20perfil&color=blueviolet&style=for-the-badge" alt="Visualizaciones del perfil" />
 </p>
 
+<p align="center">
+  <a href="#vista-general">
+    <img src="https://img.shields.io/badge/Modelo%20relacional-Ver-blue?style=for-the-badge" alt="Ver modelo relacional" />
+  </a>
+  <a href="docs/diagrama_er.png">
+    <img src="https://img.shields.io/badge/Diagrama%20ER-Abrir-purple?style=for-the-badge" alt="Abrir diagrama ER" />
+  </a>
+  <a href="docs/memoria_nexshop.pdf">
+    <img src="https://img.shields.io/badge/Memoria-PDF-red?style=for-the-badge" alt="Abrir memoria PDF" />
+  </a>
+  <a href="sql/schema.sql">
+    <img src="https://img.shields.io/badge/Schema-SQL-green?style=for-the-badge" alt="Abrir schema SQL" />
+  </a>
+  <a href="consultas/consultas.sql">
+    <img src="https://img.shields.io/badge/Consultas-MySQL-orange?style=for-the-badge" alt="Abrir consultas MySQL" />
+  </a>
+</p>
+
 Proyecto de base de datos para NexShop Group S.A. El trabajo parte del enunciado de negocio y lo transforma en un modelo entidad-relación, un modelo relacional y una implementación SQL preparada para MySQL Workbench.
 
 La base de datos recoge la parte online y presencial de NexShop: clientes, direcciones, pedidos, ventas, envíos, devoluciones, catálogo, categorías, proveedores, stock, promociones, valoraciones, incidencias y puntos de fidelización.
